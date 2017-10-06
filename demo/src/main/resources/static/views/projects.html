@@ -1,0 +1,30 @@
+<a href="/#!/project/add">Add a new</a>
+<div class="panel panel-default" ng-init="getProjects()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Projects</h3>
+  </div>
+  <div class="panel-body">
+  <!-- <div>{{employees}}</div> -->
+    <div class="row">
+	    <div class="col-md-12">
+	    	<table class="table">
+	    		<tr> 
+		    		<th>Id</th>
+		    		<th>Name</th>
+		    		<th>Manager</th>
+		    		<th>billing_Type</th>
+		    		<!-- <th>Khichadi</th> -->
+	    		</tr>			
+				<tr ng-repeat="project in projects"> 
+					<td>{{project.id}}</td>
+					<td>{{project.name}}</td>
+					<td>{{project.manager}}</td>
+					<td>{{project.billing_Type}}</td>
+					<!-- <td>{{emp}}</td> -->
+					<td><a class="btn btn-primary" href="#!/project/details/{{project.id}}">Get Details</a></td>
+				</tr>
+				
+	    	</table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="panel panel-default" ng-init="getEmployees()">
+  <div class="panel-heading">
+    <h3 class="panel-title">Employees</h3>
+  </div>
+  <div class="panel-body">
+  <!-- <div>{{employees}}</div> -->
+    <div class="row">
+	    <div class="col-md-12">
+	    	<table class="table">
+	    		<tr> 
+		    		<th>Id</th>
+		    		<th>Name</th>
+		    		<th>Role</th>
+		    		<th>Email</th>
+		    		<th>DOJ</th>
+		    		<!-- <th>Khichadi</th> -->
+	    		</tr>			
+				<tr ng-repeat="emp in employees"> 
+					<td>{{emp.id}}</td>
+					<td>{{emp.name}}</td>
+					<td>{{emp.role}}</td>
+					<td>{{emp.email}}</td>
+					<td>{{emp.date_of_joining}}</td>
+					<!-- <td>{{emp}}</td> -->
+					<td><a class="btn btn-primary" href="#!/employee/details/{{emp.id}}">Get Details</a></td>
+				</tr>
+				
+	    	</table>
+    </div>
+  </div>
+</div>

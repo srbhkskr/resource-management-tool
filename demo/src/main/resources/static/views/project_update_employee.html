@@ -1,0 +1,20 @@
+<div>
+	<h4 class="panel-title">Update Employees</h4>
+	<div ng-init="getProject()">
+		<form ><!-- ng-submit="updateSkillsEmployee()"> -->
+			<div ng-init="getEmployees()" class="list" ng-app="myApp" ng-controller="EmployeesController">
+				<table class="table">
+					<tr><th>Check</th><th>Name</th><th>Level</th><th>Category</th></tr>
+					<tr ng-repeat="employee in employees">
+					<td><input type="checkbox"  name="emp-check" value="{{employee.id}}" id="{{employee.id}}" ng-model="selectedEmployees[employee.id]" ng-change="stateChangedEmployee(employee.id)"/></td>
+						<td >{{employee.id}}</td>
+						<td>{{employee.name}}</td>
+						<td>{{employee.role}}</td>	 
+					</tr>
+					<tr><td><button href="javascript:;" data-ng-click="updateEmployeesProject()">Submit</button>
+					<td><button href="/#!/project/details/{{project.id}}">Cancel</button></td></tr>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>

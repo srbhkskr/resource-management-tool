@@ -1,0 +1,74 @@
+<a href="#/employees">Go Back</a>
+<div class="panel panel-default" ng-init="getEmployee()">
+  <div class="panel-heading">
+    <!-- <h3 class="panel-title">Employee Details</h3> -->
+  </div>
+  <div class="panel-body">
+  <!-- <div>{{employees}}</div> -->
+    <div class="row">
+    	
+	    <div class="col-xs-6">
+	    	<h3 class="panel-title">Employee Details</h3>
+	    	<table class="table">
+	    		<tr><td>Id</td><td>{{employee.id}}</td> </tr>
+		    	<tr><td>Name</td><td>{{employee.name}}</td></tr>
+		    	<tr><td>Role</td><td>{{employee.role}}</td></tr>
+		    	<tr><td>Email</td><td>{{employee.email}}</td></tr>
+		    	<tr><td>Date Of Joining</td><td>{{employee.date_of_joining}}</td></tr>
+		    	<tr><td>Manager</td><td>{{employee.manager.name}}</td></tr>
+		    	<!-- <tr hidden="true"><td>Khichadi</td><td>{{employee}}</td></tr>  -->
+		    	<tr>
+		    		<td><a class="btn btn-primary" href="#!/employee/update/{{employee.id}}">Edit Profile</a></td>
+		    		<td><a class="btn btn-primary" href="#" ng-click="deleteEmployee(employee.id)">Delete Profile</a></td>
+		    	</tr>
+	    	</table>
+	    	<div>
+	    	<h4 class="panel-title">Skills</h4>
+	    		<table class="table">
+	    			<tr><th>Name</th><th>Level</th><th>Category</th></tr>
+	    			<tr ng-repeat="skill in employee.skills">
+	    			<td>{{skill.name}}</td>
+	    			<td>{{skill.level}}</td>
+	    			<td>{{skill.category_Id}}</td>
+	    			<td><a class="btn btn-primary" ng-click="removeSkillsEmployee(skill.id)" >Remove</a></td>
+	    			</tr>
+	    			<tr><td><a class="btn btn-primary" href="#!/employee/{{employee.id}}/updateskill">Add</a></td></tr>
+	    		</table>
+	    	</div>
+	    	</div>
+	    	<div class="col-xs-6">
+	    	
+	    	<div >
+	    	<h4 class="panel-title">Current Projects Allocated To {{employee.name}}</h4>
+	    		<table class="table">
+	    			<tr><th>Name</th><th>Customer</th><th>Domain</th></tr>
+	    			<tr ng-repeat="project in employee.projects">
+	    			<td>{{project.name}}</td>
+	    			<td>{{project.customer}}</td>
+	    			<td>{{project.domain}}</td>
+	    			</tr>
+	    		</table>
+	    	</div>
+	    	</div>
+	    	<div >
+	    	
+	    		<table class="table">
+	    			<tr><td><h4 class="panel-title">Work Allocation</h4></td></tr>
+	    			<tr><th>Project</th><th>Start Date</th><th>End Date</th><th>Type Of Work</th><th>Bandwidth %</th></tr>
+	    			<tr ng-repeat="workAllocation in employee.workAllocations">
+	    			<td>{{workAllocation.project.name}}</td>
+	    			<td>{{workAllocation.start_date}}</td>
+	    			<td>{{workAllocation.end_date}}</td>
+	    			<td>{{workAllocation.typeOfWork}}</td>
+	    			<td>{{workAllocation.percentage}}</td>
+	    			<td><a class="btn btn-primary" href="#!/workallocation/update/{{workAllocation.id}}">Edit</a></td>
+	    			<div ng-controller="WorkAllocationsController"><td><a class="btn btn-primary"  ng-click="deleteWorkAllocation(workAllocation.id)">Remove</a></td></div>
+	    			</tr>
+	    			<tr><td><a class="btn btn-primary" href="#!/employee/{{employee.id}}/addworkallocation">Add</a></td></tr>
+	    			
+	    		</table>
+	    	</div>
+	    	
+    </div>
+  </div>
+</div>

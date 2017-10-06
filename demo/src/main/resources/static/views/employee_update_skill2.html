@@ -1,0 +1,41 @@
+<div>
+	<h4 class="panel-title">Add Skills</h4>
+	<div ng-init="getEmployee()">
+		
+			
+			<div ng-init="getSkills()" class="list" ng-app="myApp" ng-controller="SkillsController"></div>
+			
+			<div class="col-xs-5">
+			<label for="aclients">Available Skills</label>  
+			<h3>{{availableskills}} </h3>   
+			
+			<h3>{{selectedskills}}</h3>                          
+			<select size="5" multiple ng-model="available" ng-options="s.name for s in availableskills" style="width: 400px"></select>         
+			</div >
+			<div class="col-xs-2">
+			<input id="moveright" type="button" value="Add Skill" ng-click="moveItem(available[0], availableskills, selectedskills)" />
+			<input id="moverightall" type="button" value="Add All Skills" ng-click="moveAll(availableskills,selectedskills)" />
+			<input id="move left" type="button" value="Remove Skill" ng-click="moveItem(selected[0], selectedskills,availableskills)" />    
+			<input id="moveleftall" type="button" value="Remove All Skills" ng-click="moveAll(selectedskills,availableskills)" />
+			</div>
+			<div class="col-xs-5">
+			<label for="sskills">Selected Skills</label>                                                    
+			<select size="5" multiple ng-model="selected" ng-options="skill as skill.name for skill in employee.skills" style="width: 400px"></select>
+			
+				<!-- <table class="table">
+					<tr><th>Check</th><th>Id<th>Name</th><th>Level</th><th>Category</th></tr>
+					<tr ng-repeat="skill in skills">
+					<td><input type="checkbox"  name="skill-check" value="{{skill.id}}" id="{{skill.id}}" ng-model="selectedskills[skill.id]" ng-change="stateChanged1(skill.id)"/></td>
+					<td><input type="checkbox"  ng-model="modelContainer[$skill].checked"     /></td>
+					<td >{{skill.id}}</td>
+						<td>{{skill.name}}</td>
+						<td>{{skill.level}}</td>
+						<td>{{skill.category_Id}}</td>	 
+					</tr>
+					<tr><td><button href="javascript:;" data-ng-click="updateSkillsEmployee()">Submit</button></tr>
+					<tr><td><button href="/#!/employee/details/{{employee.id}}">Cancel</button></td></tr>
+				</table> -->
+			</div>
+		
+	</div>
+</div>

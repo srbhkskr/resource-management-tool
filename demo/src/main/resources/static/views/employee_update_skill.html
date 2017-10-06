@@ -1,0 +1,22 @@
+<div>
+	<h4 class="panel-title">Add Skills</h4>
+	<div ng-init="getEmployee()">
+		<form ><!-- ng-submit="updateSkillsEmployee()"> -->
+			<div ng-init="getSkills()" class="list" ng-app="myApp" ng-controller="SkillsController">
+				<table class="table">
+					<tr><th>Check</th><th>Id<th>Name</th><th>Level</th><th>Category</th></tr>
+					<tr ng-repeat="skill in skills">
+					<td><input type="checkbox"  name="skill-check" value="{{skill.id}}" id="{{skill.id}}" ng-model="selectedskills[skill.id]" ng-change="stateChanged1(skill.id)"/></td>
+					<!-- <td><input type="checkbox"  ng-model="modelContainer[$skill].checked"     /></td> -->
+					<td >{{skill.id}}</td>
+						<td>{{skill.name}}</td>
+						<td>{{skill.level}}</td>
+						<td>{{skill.category_Id}}</td>	 
+					</tr>
+					<tr><td><button href="javascript:;" data-ng-click="updateSkillsEmployee()">Submit</button></tr>
+					<tr><td><button href="/#!/employee/details/{{employee.id}}">Cancel</button></td></tr>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>
